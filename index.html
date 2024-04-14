@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APEX_QR-VAULT:-Unlocking storage potential</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add any additional CSS styles here */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-image: url("images/background1.jpg");
+            background-size: cover;
+            background-attachment: fixed; /* Ensure the background remains fixed */
+        }
+
+        .section {
+            border: 2px solid #fa4f4f;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        #image-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            overflow: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #image-container embed {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Style for dropdown menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.7); /* Transparent white background */
+            width: max-content; /* Adjusted width to fit all details in one line */
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+            left: -160px; /* Position on the left side */
+            top: 100%; /* Align dropdown to bottom of button */
+            opacity: 0;
+            transition: opacity 0.5s ease, left 0.5s ease; /* Added transition effect */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1; /* Show dropdown content with transition */
+            left: 0; /* Slide in from the left */
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            display: flex;
+            flex-direction: column; /* Added to display profile name and phone number in separate lines */
+            align-items: flex-start; /* Added to align profile name and phone number to the left */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Added transition effect */
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            opacity: 1; /* Show on hover with transition */
+            transform: translateY(0px);
+        }
+
+        .profile-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Progress bar styles */
+        .progress-bar {
+            position: fixed;
+            width: 100%;
+            height: 5px; /* Adjust the height of the progress bar */
+            background-color: #fa4f4f; /* Color of the progress bar */
+            transition: width 1s ease; /* Smooth transition for the width change */
+            visibility: hidden; /* Initially hidden */
+            top: 0;
+            left: 0;
+        }
+
+        /* Button styles */
+        .quality-button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #ddd;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .quality-button.selected {
+            background-color: blue;
+            color: white;
+        }
+
+        .quality-button:hover {
+            background-color: #ccc;
+        }
+
+        /* Styling for the ENCODING heading */
+        .highlight-heading {
+            background-color: #fa4f4f; /* Orange background with transparency */
+            padding: 10px; /* Add padding for space around the text */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 2rem; /* Larger font size */
+            font-weight: bold; /* Bold font weight */
+            color: #fff; /* White text color */
+            text-align: center; /* Center align the text */
+            text-transform: uppercase; /* Uppercase text */
+            margin-bottom: 20px; /* Add some space below the heading */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+     <nav>
+        <img src="images/logo.png" class="logo">
+        <ul>
+            <li><a href="#" class="link" data-src="D:\apx\images\abs.pdf">Abstract</a></li>
+            <li><a href="#" class="link" data-src="D:\apx\images\AKHIL QR.pdf">Information</a></li>
+            <li><a href="https://forms.gle/p79LHGAVRYqpXsQm6" target="_blank">G-Forms</a></li> <!-- Changed "contact us" to "Gains" -->
+        </ul>
+        <!-- Dropdown menu for Instagram profiles -->
+        <div class="dropdown">
+            <button class="btn">Teammates</button>
+            <div class="dropdown-content">
+                <a href="https://www.instagram.com/murali_paila__/">
+                    <img src="D:\apx\images\li.jpeg" class="profile-img">
+                    <span>Murali Paila</span>
+                    <span>Phno: 80082 42013</span>
+                </a>
+                <a href="https://www.instagram.com/0t_0e_07j_/">
+                    <img src="D:\apx\images\teja.jpg" class="profile-img">
+                    <span>Tejeswar Rao Majji</span>
+                    <span>Phno: 63015 86689</span>
+                </a>
+                <a href="https://www.instagram.com/gunjesh_07/">
+                    <img src="D:\apx\images\gunji.png" class="profile-img">
+                    <span>Gunjesh Kumar Singh</span>
+                    <span>Phno: 90630 95958</span>
+                </a>
+                <a href="https://www.instagram.com/the_alone_akhil/">
+                    <img src="D:\apx\images\athul.png" class="profile-img">
+                    <span>Akhil Nemalapuri</span>
+                    <span>Phno: 93900 93962</span>
+                </a>
+            </div>
+        </div>
+     </nav>
+            
+     <div class="content">
+        <div class="section">
+            <h1 class="highlight-heading anim">ENCODING</h1>
+            <p class="anim"></p>
+        </div>
+        <div class="section">
+             <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" id="myfile" name="myfile">
+                <button type="button" class="btn anim" id="uploadButton">Upload</button>
+             </form>
+        </div>
+        <div class="section">
+             <button class="quality-button" id="normal">Normal</button>
+             <button class="quality-button" id="hd">HD</button>
+             <button class="quality-button" id="uhd">UHD</button>
+             <a id="downloadLink" href="#" download="file.pdf"><button type="button" class="bt" id="downloadButton">Download</button></a>
+        </div>
+     </div>
+</div>
+
+<div id="image-container">
+    <button class="back-button" onclick="hideImage()">Back</button>
+    <embed id="pdfEmbed" type="application/pdf" width="100%" height="100%">
+</div>
+
+<div class="progress-bar"></div>
+
+<script>
+document.querySelectorAll('.link').forEach(item => {
+    item.addEventListener('click', event => {
+        const src = event.target.getAttribute('data-src');
+        showPdf(src);
+    });
+});
+
+function showPdf(src) {
+    const pdfEmbed = document.getElementById('pdfEmbed');
+    pdfEmbed.src = src;
+    document.getElementById('image-container').style.display = 'block';
+}
+
+function hideImage() {
+    document.getElementById('image-container').style.display = 'none';
+}
+
+// Adding event listener to the download button
+document.getElementById('downloadButton').addEventListener('click', function() {
+    const progressBar = document.querySelector('.progress-bar');
+    progressBar.style.visibility = 'visible'; // Show the progress bar
+    progressBar.style.width = '100%'; // Filling the progress bar
+    setTimeout(() => {
+        progressBar.style.width = '0'; // Resetting the progress bar after download completes
+        progressBar.style.visibility = 'hidden'; // Hide the progress bar
+        document.querySelectorAll('.quality-button').forEach(btn => btn.classList.remove('selected')); // Remove selection color
+    }, 1000); // Change this value to match your desired download duration
+});
+
+// Adding event listeners to quality buttons
+document.getElementById('normal').addEventListener('click', function() {
+    document.querySelectorAll('.quality-button').forEach(btn => btn.classList.remove('selected'));
+    this.classList.add('selected');
+});
+
+document.getElementById('hd').addEventListener('click', function() {
+    document.querySelectorAll('.quality-button').forEach(btn => btn.classList.remove('selected'));
+    this.classList.add('selected');
+});
+
+document.getElementById('uhd').addEventListener('click', function() {
+    document.querySelectorAll('.quality-button').forEach(btn => btn.classList.remove('selected'));
+    this.classList.add('selected');
+});
+
+document.getElementById('uploadButton').addEventListener('click', function() {
+    const progressBar = document.querySelector('.progress-bar');
+    progressBar.style.visibility = 'visible'; // Show the progress bar
+    progressBar.style.width = '100%'; // Filling the progress bar
+    setTimeout(() => {
+        progressBar.style.width = '0'; // Resetting the progress bar after upload completes
+        progressBar.style.visibility = 'hidden'; // Hide the progress bar
+    }, 1000); // Change this value to match your desired upload duration
+});
+</script>
+</body>    
+</html>

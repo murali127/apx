@@ -15,33 +15,187 @@
             background-attachment: fixed; /* Ensure the background remains fixed */
         }
 
-        .section {
-            border: 2px solid #fa4f4f;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background-image: url("images/background1.jpg");
+            background-size: cover;
+            background-position: center;
+            padding: 0px 5%;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.3); /* Change background color */
         }
 
-        #image-container {
-            display: none;
+        nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .logo {
+            width: 400px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            width: 100%;
+            text-align: right;
+            padding-right: 60px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 10px 20px;
+        }
+
+        nav ul li a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border: 0;
+            outline: 0;
+            border-radius: 5px;
+            background: #fa4f4f;
+            color: #fff;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .btn:hover {
+            border-radius: 30px;
+            background: #000;
+        }
+
+        .btn img {
+            width: 25px;
+            margin-right: 10px;
+        }
+
+        .bt {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 0;
+            outline: 0;
+            border-radius: 5px;
+            background: #fa4f4f; /* Change background color */
+            color: #fff;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.5s;
+            margin-left: auto; /* Move the button to the right side */
+        }
+
+        .bt:hover {
+            border-radius: 30px;
+            background: #000;
+        }
+
+        .content {
+            margin-top: 8%;
+            color: #000000;
+            max-width: 620px;
+            text-align: center;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .content h1 {
+            font-size: 70px;
+            font-weight: 600;
+            line-height: 85px;
+            margin-bottom: 25px;
+            opacity: 0;
+        }
+
+        .content p {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.5s;
+            margin-bottom: 30px;
+        }
+
+        .content form {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2); /* Updated background color */
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 30px;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 1s;
+        }
+
+        .content form input {
+            border: 0;
+            outline: 0;
+            width: 100%;
+            font-size: 16px;
+            padding-left: 10px;
+        }
+
+        .content form .btn {
+            font-size: 15px;
+            padding: 10px 30px;
+        }
+
+        .feature-img {
+            width: 530px;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 9999;
-            overflow: auto;
-            padding: 20px;
-            box-sizing: border-box;
+            top: 10%;
+            left: 50%;
+            transform: translate(50%, 50%);
+            opacity: 0.3;
+            background-color: rgba(255, 255, 255, 0.473); /* Adjust opacity here */
+            animation: fadeIn 2s ease forwards;
+            animation-delay: 1s;
         }
 
-        #image-container embed {
-            width: 100%;
-            height: 100%;
+        .feature-img.anim {
+            animation-delay: 1.5s;
         }
 
-        /* Style for dropdown menu */
+        .anim {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: moveup 0.5s linear forwards;
+        }
+
+        @keyframes moveup {
+            100% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0.3;
+            }
+        }
+
+        /* Styles for dropdown menu */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -50,20 +204,20 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: rgba(255, 255, 255, 0.7); /* Transparent white background */
-            width: max-content; /* Adjusted width to fit all details in one line */
+            background-color: transparent;
+            width: max-content;
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
             z-index: 1;
-            left: -160px; /* Position on the left side */
-            top: 100%; /* Align dropdown to bottom of button */
+            left: -160px;
+            top: 100%;
             opacity: 0;
-            transition: opacity 0.5s ease, left 0.5s ease; /* Added transition effect */
+            transition: opacity 0.5s ease, left 0.5s ease;
         }
 
         .dropdown:hover .dropdown-content {
             display: block;
-            opacity: 1; /* Show dropdown content with transition */
-            left: 0; /* Slide in from the left */
+            opacity: 1;
+            left: 0;
         }
 
         .dropdown-content a {
@@ -72,16 +226,16 @@
             text-decoration: none;
             display: block;
             display: flex;
-            flex-direction: column; /* Added to display profile name and phone number in separate lines */
-            align-items: flex-start; /* Added to align profile name and phone number to the left */
+            flex-direction: column;
+            align-items: flex-start;
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease; /* Added transition effect */
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .dropdown-content a:hover {
             background-color: #f1f1f1;
-            opacity: 1; /* Show on hover with transition */
+            opacity: 1;
             transform: translateY(0px);
         }
 
@@ -94,47 +248,23 @@
 
         /* Progress bar styles */
         .progress-bar {
-            position: fixed;
-            width: 100%;
+            position: fixed; /* Position fixed to keep it fixed relative to the viewport */
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            width: 100%; /* Occupy the full width */
             height: 5px; /* Adjust the height of the progress bar */
             background-color: #fa4f4f; /* Color of the progress bar */
             transition: width 1s ease; /* Smooth transition for the width change */
-            visibility: hidden; /* Initially hidden */
-            top: 0;
-            left: 0;
+            z-index: 9999; /* Ensure it's on top of everything */
         }
 
-        /* Button styles */
-        .quality-button {
-            padding: 10px 20px;
-            margin-right: 10px;
-            background-color: #ddd;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
+        /* Button color change */
         .quality-button.selected {
-            background-color: blue;
-            color: white;
+            background-color: blue !important;
         }
 
-        .quality-button:hover {
-            background-color: #ccc;
-        }
-
-        /* Styling for the ENCODING heading */
-        .highlight-heading {
-            background-color: #fa4f4f; /* Orange background with transparency */
-            padding: 10px; /* Add padding for space around the text */
-            border-radius: 5px; /* Rounded corners */
-            font-size: 2rem; /* Larger font size */
-            font-weight: bold; /* Bold font weight */
-            color: #fff; /* White text color */
-            text-align: center; /* Center align the text */
-            text-transform: uppercase; /* Uppercase text */
-            margin-bottom: 20px; /* Add some space below the heading */
+        .quality-button.original-color {
+            background-color: #fa4f4f !important;
         }
     </style>
 </head>
@@ -181,22 +311,39 @@
             <p class="anim"></p>
         </div>
         <div class="section">
-             <form id="uploadForm" enctype="multipart/form-data">
-                <input type="file" id="myfile" name="myfile">
-                <button type="button" class="btn anim" id="uploadButton">Upload</button>
+             <form id="uploadForm1" enctype="multipart/form-data">
+                <input type="file" id="myfile1" name="myfile">
+                <button type="button" class="btn anim uploadButton" id="uploadButton1">Upload</button>
              </form>
         </div>
         <div class="section">
-             <button class="quality-button" id="normal">Normal</button>
-             <button class="quality-button" id="hd">HD</button>
-             <button class="quality-button" id="uhd">UHD</button>
-             <a id="downloadLink" href="#" download="file.pdf"><button type="button" class="bt" id="downloadButton">Download</button></a>
+             <button class="quality-button" id="normal1">Normal</button>
+             <button class="quality-button" id="hd1">HD</button>
+             <button class="quality-button" id="uhd1">UHD</button>
+             <a id="downloadLink1" href="https://photos.google.com/photo/AF1QipNhb0xkZy0M7MHGt1ICf76pI_We6wOWUaTOpyyv" download="file1.mp4"><button type="button" class="bt" id="downloadButton1">Download</button></a>
+        </div>
+     </div>
+     <div class="content">
+        <div class="section">
+            <h1 class="highlight-heading anim">DECODING</h1>
+            <p class="anim"></p>
+        </div>
+        <div class="section">
+             <form id="uploadForm2" enctype="multipart/form-data">
+                <input type="file" id="myfile2" name="myfile">
+                <button type="button" class="btn anim uploadButton" id="uploadButton2">Upload</button>
+             </form>
+        </div>
+        <div class="section">
+             <button class="quality-button" id="normal2">Normal</button>
+             <button class="quality-button" id="hd2">HD</button>
+             <button class="quality-button" id="uhd2">UHD</button>
+             <a id="downloadLink2" href="https://photos.google.com/photo/AF1QipMCoAiSZ87ItoB1IgUkk-0iinU0NNvTttfAfZCP" download="file2.mp4"><button type="button" class="bt" id="downloadButton2">Download</button></a>
         </div>
      </div>
 </div>
 
 <div id="image-container">
-    <button class="back-button" onclick="hideImage()">Back</button>
     <embed id="pdfEmbed" type="application/pdf" width="100%" height="100%">
 </div>
 
@@ -216,46 +363,49 @@ function showPdf(src) {
     document.getElementById('image-container').style.display = 'block';
 }
 
-function hideImage() {
-    document.getElementById('image-container').style.display = 'none';
-}
-
 // Adding event listener to the download button
-document.getElementById('downloadButton').addEventListener('click', function() {
-    const progressBar = document.querySelector('.progress-bar');
-    progressBar.style.visibility = 'visible'; // Show the progress bar
-    progressBar.style.width = '100%'; // Filling the progress bar
-    setTimeout(() => {
-        progressBar.style.width = '0'; // Resetting the progress bar after download completes
-        progressBar.style.visibility = 'hidden'; // Hide the progress bar
-        document.querySelectorAll('.quality-button').forEach(btn => btn.classList.remove('selected')); // Remove selection color
-    }, 1000); // Change this value to match your desired download duration
+document.querySelectorAll('.bt').forEach(button => {
+    button.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default behavior of anchor tag
+        const progressBar = document.querySelector('.progress-bar');
+        progressBar.style.visibility = 'visible'; // Show the progress bar
+        progressBar.style.width = '100%'; // Filling the progress bar
+
+        // Change button color after download starts
+        const qualityButtons = document.querySelectorAll('.quality-button');
+        qualityButtons.forEach(btn => {
+            btn.classList.remove('selected');
+            btn.classList.add('original-color');
+        });
+
+        setTimeout(() => {
+            progressBar.style.width = '0'; // Resetting the progress bar after download completes
+            progressBar.style.visibility = 'hidden'; // Hide the progress bar
+
+            // Restore original button color after download completes
+            qualityButtons.forEach(btn => btn.classList.remove('original-color'));
+        }, 1000); // Change this value to match your desired download duration
+    });
 });
 
 // Adding event listeners to quality buttons
-document.getElementById('normal').addEventListener('click', function() {
-    document.querySelectorAll('.quality-button').forEach(btn => btn.classList.remove('selected'));
-    this.classList.add('selected');
+document.querySelectorAll('.quality-button').forEach(button => {
+    button.addEventListener('click', function() {
+        document.querySelectorAll('.quality-button').forEach(btn => btn.classList.remove('selected'));
+        this.classList.add('selected');
+    });
 });
 
-document.getElementById('hd').addEventListener('click', function() {
-    document.querySelectorAll('.quality-button').forEach(btn => btn.classList.remove('selected'));
-    this.classList.add('selected');
-});
-
-document.getElementById('uhd').addEventListener('click', function() {
-    document.querySelectorAll('.quality-button').forEach(btn => btn.classList.remove('selected'));
-    this.classList.add('selected');
-});
-
-document.getElementById('uploadButton').addEventListener('click', function() {
-    const progressBar = document.querySelector('.progress-bar');
-    progressBar.style.visibility = 'visible'; // Show the progress bar
-    progressBar.style.width = '100%'; // Filling the progress bar
-    setTimeout(() => {
-        progressBar.style.width = '0'; // Resetting the progress bar after upload completes
-        progressBar.style.visibility = 'hidden'; // Hide the progress bar
-    }, 1000); // Change this value to match your desired upload duration
+document.querySelectorAll('.uploadButton').forEach(uploadButton => {
+    uploadButton.addEventListener('click', function() {
+        const progressBar = document.querySelector('.progress-bar');
+        progressBar.style.visibility = 'visible'; // Show the progress bar
+        progressBar.style.width = '100%'; // Filling the progress bar
+        setTimeout(() => {
+            progressBar.style.width = '0'; // Resetting the progress bar after upload completes
+            progressBar.style.visibility = 'hidden'; // Hide the progress bar
+        }, 1000); // Change this value to match your desired upload duration
+    });
 });
 </script>
 </body>    

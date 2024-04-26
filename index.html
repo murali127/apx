@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>APEX_QR-VAULT:-Unlocking storage potential</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         /* Add any additional CSS styles here */
         body {
@@ -266,6 +267,26 @@
         .quality-button.original-color {
             background-color: #fa4f4f !important;
         }
+
+        /* Download button styles */
+        .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 0;
+            outline: 0;
+            border-radius: 5px;
+            background: #fa4f4f; /* Change background color */
+            color: #fff;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.5s;
+            text-decoration: none; /* Remove underline */
+        }
+
+        .download-button:hover {
+            border-radius: 30px;
+            background: #000;
+        }
     </style>
 </head>
 <body>
@@ -320,7 +341,8 @@
              <button class="quality-button" id="normal1">Normal</button>
              <button class="quality-button" id="hd1">HD</button>
              <button class="quality-button" id="uhd1">UHD</button>
-             <a id="downloadLink1" href="images/123.mp4" download="file1.mp4"><button type="button" class="bt" id="downloadButton1">Download</button></a>
+             <a id="downloadLink1" class="download-button" href="https://drive.google.com/uc?export=download&id=1X_6guR97tWX111-3ihudfAPo_1otyNl7" download="file1.mp4">Download</a>
+             
         </div>
      </div>
      <div class="content">
@@ -338,7 +360,7 @@
              <button class="quality-button" id="normal2">Normal</button>
              <button class="quality-button" id="hd2">HD</button>
              <button class="quality-button" id="uhd2">UHD</button>
-             <a id="downloadLink2" href="images/1111.mp4" download="file2.mp4"><button type="button" class="bt" id="downloadButton2">Download</button></a>
+             <a id="downloadLink2" class="download-button" href="https://drive.google.com/uc?export=download&id=1w5opOMubq688b9vHDen-zcsqZ9xa5fmy" download="file2.mp4">Download</a>
         </div>
      </div>
 </div>
@@ -364,38 +386,6 @@ function showPdf(src) {
 }
 
 // Adding event listener to the download button
-document.querySelectorAll('.bt').forEach(button => {
-    button.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent default behavior of anchor tag
-        const progressBar = document.querySelector('.progress-bar');
-        progressBar.style.visibility = 'visible'; // Show the progress bar
-        progressBar.style.width = '100%'; // Filling the progress bar
-
-        // Change button color after download starts
-        const qualityButtons = document.querySelectorAll('.quality-button');
-        qualityButtons.forEach(btn => {
-            btn.classList.remove('selected');
-            btn.classList.add('original-color');
-        });
-
-        setTimeout(() => {
-            progressBar.style.width = '0'; // Resetting the progress bar after download completes
-            progressBar.style.visibility = 'hidden'; // Hide the progress bar
-
-            // Restore original button color after download completes
-            qualityButtons.forEach(btn => btn.classList.remove('original-color'));
-        }, 1000); // Change this value to match your desired download duration
-    });
-});
-
-// Adding event listeners to quality buttons
-document.querySelectorAll('.quality-button').forEach(button => {
-    button.addEventListener('click', function() {
-        document.querySelectorAll('.quality-button').forEach(btn => btn.classList.remove('selected'));
-        this.classList.add('selected');
-    });
-});
-
 document.querySelectorAll('.uploadButton').forEach(uploadButton => {
     uploadButton.addEventListener('click', function() {
         const progressBar = document.querySelector('.progress-bar');
@@ -405,6 +395,14 @@ document.querySelectorAll('.uploadButton').forEach(uploadButton => {
             progressBar.style.width = '0'; // Resetting the progress bar after upload completes
             progressBar.style.visibility = 'hidden'; // Hide the progress bar
         }, 1000); // Change this value to match your desired upload duration
+    });
+});
+
+// Adding event listeners to quality buttons
+document.querySelectorAll('.quality-button').forEach(button => {
+    button.addEventListener('click', function() {
+        document.querySelectorAll('.quality-button').forEach(btn => btn.classList.remove('selected'));
+        this.classList.add('selected');
     });
 });
 </script>

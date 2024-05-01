@@ -139,21 +139,36 @@ nav ul li a {
     padding: 10px 30px;
 }
 
-.feature-img {
-    width: 530px;
-    position: fixed;
-    top: 10%;
-    left: 50%;
-    transform: translate(50%, 50%);
-    opacity: 0.3;
-    background-color: rgba(255, 255, 255, 0.473); /* Adjust opacity here */
-    animation: fadeIn 2s ease forwards;
-    animation-delay: 1s;
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    background: #fa4f4f; /* Change background color */
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-right: 10px; /* Add some space between buttons */
 }
 
-.feature-img.anim {
-    animation-delay: 1.5s;
+.download-button:hover {
+    border-radius: 30px;
+    background: #000;
 }
+
+.feature-img {
+    width: 530px;
+    position: absolute;
+    bottom: -160px; /* Move the image downwards */
+    right: 10%;
+    opacity: 1; /* Adjust opacity here */
+    background-color: rgba(255, 255, 255, 0.473); /* Background color with transparency */
+
+}
+
+
 
 .anim {
     opacity: 0;

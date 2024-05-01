@@ -153,8 +153,8 @@
     right: 10%;
     opacity: 0.8; /* Adjust opacity here */
     background-color: rgba(255, 255, 255, 0.473); /* Background color with transparency */
-   /* animation: fadeIn s ease forwards;
-    animation-delay: 1s;*/
+    animation: fadeIn s ease forwards;
+    animation-delay: 1s;
 }
 
        
@@ -320,6 +320,7 @@
                 <input type="file" id="myfile1" name="myfile">
                 <button type="button" class="btn anim uploadButton" id="uploadButton1">Upload</button>
              </form>
+             <div class="progress-bar"></div>
         </div>
         <div class="section">
              <button class="quality-button" id="normal1">Normal</button>
@@ -340,6 +341,7 @@
                 <input type="file" id="myfile2" name="myfile">
                 <button type="button" class="btn anim uploadButton" id="uploadButton2">Upload</button>
              </form>
+             <div class="progress-bar"></div>
         </div>
         <div class="section">
              <button class="quality-button" id="normal2">Normal</button>
@@ -357,111 +359,109 @@
     <embed id="pdfEmbed" type="application/pdf" width="100%" height="100%">
 </div>
 
-<div class="progress-bar"></div>
-
 <script>
-document.querySelectorAll('.link').forEach(item => {
-    item.addEventListener('click', event => {
-        const src = event.target.getAttribute('data-src');
-        showPdf(src);
-    });
-});
-
-function showPdf(src) {
-    const pdfEmbed = document.getElementById('pdfEmbed');
-    pdfEmbed.src = src;
-    document.getElementById('image-container').style.display = 'block';
-}
-
-// Adding event listener to the download button
-document.querySelectorAll('.download-button').forEach(downloadButton => {
-    downloadButton.addEventListener('click', function(event) {
-        const uploadForm = event.target.closest('.section').querySelector('form');
-        const uploadedFile = uploadForm.querySelector('input[type=file]').files[0];
-        if (!uploadedFile) {
-            alert("Please upload a file first!");
-            event.preventDefault(); // Prevent default action (i.e., following the link)
-        } else {
-            // Reload the page after 3 seconds
-            setTimeout(() => {
-                window.location.reload();
-            }, 3000); // Change this value to set the delay before reloading (in milliseconds)
-        }
-    });
-});
-
-document.querySelectorAll('.uploadButton').forEach(uploadButton => {
-    uploadButton.addEventListener('click', function(event) {
-        const section = event.target.closest('.section');
-        const progressBar = section.querySelector('.progress-bar');
-        const uploadForm = section.querySelector('form');
-        const uploadedFile = uploadForm.querySelector('input[type=file]').files[0];
-        if (!uploadedFile) {
-            alert("Please select a file to upload!");
-            return;
-        }
-        const formData = new FormData();
-        formData.append('file', uploadedFile);
-        fetch('upload.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            if (data.success) {
-                progressBar.style.width = '100%';
-            } else {
-                alert("File upload failed!");
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert("File upload failed!");
+    document.querySelectorAll('.link').forEach(item => {
+        item.addEventListener('click', event => {
+            const src = event.target.getAttribute('data-src');
+            showPdf(src);
         });
     });
-});
 
-// Update the background color of selected quality buttons
-function updateQualityButtonState(id) {
-    document.querySelectorAll('.quality-button').forEach(button => {
-        if (button.id === id) {
-            button.classList.add('selected');
-        } else {
-            button.classList.remove('selected');
-        }
+    function showPdf(src) {
+        const pdfEmbed = document.getElementById('pdfEmbed');
+        pdfEmbed.src = src;
+        document.getElementById('image-container').style.display = 'block';
+    }
+
+    // Adding event listener to the download button
+    document.querySelectorAll('.download-button').forEach(downloadButton => {
+        downloadButton.addEventListener('click', function(event) {
+            const uploadForm = event.target.closest('.section').querySelector('form');
+            const uploadedFile = uploadForm.querySelector('input[type=file]').files[0];
+            if (!uploadedFile) {
+                alert("Please upload a file first!");
+                event.preventDefault(); // Prevent default action (i.e., following the link)
+            } else {
+                // Reload the page after 3 seconds
+                setTimeout(() => {
+                    window.location.reload();
+                }, 3000); // Change this value to set the delay before reloading (in milliseconds)
+            }
+        });
     });
-}
 
-document.getElementById('normal1').addEventListener('click', function() {
-    updateQualityButtonState('normal1');
-    document.getElementById('downloadLink1').href = 'https://drive.google.com/uc?export=download&id=18UPseEG9vaTxZPnuztLCQRkohOfS5udk';
-});
+    document.querySelectorAll('.uploadButton').forEach(uploadButton => {
+        uploadButton.addEventListener('click', function(event) {
+            const section = event.target.closest('.section');
+            const progressBar = section.querySelector('.progress-bar');
+            const uploadForm = section.querySelector('form');
+            const uploadedFile = uploadForm.querySelector('input[type=file]').files[0];
+            if (!uploadedFile) {
+                alert("Please select a file to upload!");
+                return;
+            }
+            const formData = new FormData();
+            formData.append('file', uploadedFile);
+            fetch('upload.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                if (data.success) {
+                    progressBar.style.width = '100%';
+                } else {
+                    alert("File upload failed!");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("File upload failed!");
+            });
+        });
+    });
 
-document.getElementById('hd1').addEventListener('click', function() {
-    updateQualityButtonState('hd1');
-    document.getElementById('downloadLink1').href = 'https://drive.google.com/uc?export=download&id=18UPseEG9vaTxZPnuztLCQRkohOfS5udk';
-});
+    // Update the background color of selected quality buttons
+    function updateQualityButtonState(id) {
+        document.querySelectorAll('.quality-button').forEach(button => {
+            if (button.id === id) {
+                button.classList.add('selected');
+            } else {
+                button.classList.remove('selected');
+            }
+        });
+    }
 
-document.getElementById('uhd1').addEventListener('click', function() {
-    updateQualityButtonState('uhd1');
-    document.getElementById('downloadLink1').href = 'https://drive.google.com/uc?export=download&id=18UPseEG9vaTxZPnuztLCQRkohOfS5udk';
-});
+    document.getElementById('normal1').addEventListener('click', function() {
+        updateQualityButtonState('normal1');
+        document.getElementById('downloadLink1').href = 'https://drive.google.com/uc?export=download&id=18UPseEG9vaTxZPnuztLCQRkohOfS5udk';
+    });
 
-document.getElementById('normal2').addEventListener('click', function() {
-    updateQualityButtonState('normal2');
-    document.getElementById('downloadLink2').href = 'https://drive.google.com/uc?export=download&id=1EjtFCw4kFewTuWtoPvefDCq3lkN5k_r1';
-});
+    document.getElementById('hd1').addEventListener('click', function() {
+        updateQualityButtonState('hd1');
+        document.getElementById('downloadLink1').href = 'https://drive.google.com/uc?export=download&id=18UPseEG9vaTxZPnuztLCQRkohOfS5udk';
+    });
 
-document.getElementById('hd2').addEventListener('click', function() {
-    updateQualityButtonState('hd2');
-    document.getElementById('downloadLink2').href = 'https://drive.google.com/uc?export=download&id=1EjtFCw4kFewTuWtoPvefDCq3lkN5k_r1';
-});
+    document.getElementById('uhd1').addEventListener('click', function() {
+        updateQualityButtonState('uhd1');
+        document.getElementById('downloadLink1').href = 'https://drive.google.com/uc?export=download&id=18UPseEG9vaTxZPnuztLCQRkohOfS5udk';
+    });
 
-document.getElementById('uhd2').addEventListener('click', function() {
-    updateQualityButtonState('uhd2');
-    document.getElementById('downloadLink2').href = 'https://drive.google.com/uc?export=download&id=1EjtFCw4kFewTuWtoPvefDCq3lkN5k_r1';
-});
+    document.getElementById('normal2').addEventListener('click', function() {
+        updateQualityButtonState('normal2');
+        document.getElementById('downloadLink2').href = 'https://drive.google.com/uc?export=download&id=1EjtFCw4kFewTuWtoPvefDCq3lkN5k_r1';
+    });
+
+    document.getElementById('hd2').addEventListener('click', function() {
+        updateQualityButtonState('hd2');
+        document.getElementById('downloadLink2').href = 'https://drive.google.com/uc?export=download&id=1EjtFCw4kFewTuWtoPvefDCq3lkN5k_r1';
+    });
+
+    document.getElementById('uhd2').addEventListener('click', function() {
+        updateQualityButtonState('uhd2');
+        document.getElementById('downloadLink2').href = 'https://drive.google.com/uc?export=download&id=1EjtFCw4kFewTuWtoPvefDCq3lkN5k_r1';
+    });
 </script>
 </body>
 </html>

@@ -13,7 +13,7 @@
             font-family: 'Poppins', sans-serif;
             background-image: url("images/background1.jpg");
             background-size: cover;
-            background-attachment: fixed; /* Ensure the background remains fixed */
+            background-attachment: scroll; /* Ensure the background remains fixed */
         }
 
         .container {
@@ -146,22 +146,18 @@
             font-size: 15px;
             padding: 10px 30px;
         }
-
         .feature-img {
-            width: 530px;
-            position: fixed;
-            top: 10%;
-            left: 50%;
-            transform: translate(50%, 50%);
-            opacity: 0.3;
-            background-color: rgba(255, 255, 255, 0.473); /* Adjust opacity here */
-            animation: fadeIn 2s ease forwards;
-            animation-delay: 1s;
-        }
+    width: 530px;
+    position: absolute;
+    bottom: -300px; /* Move the image downwards */
+    right: 10%;
+    opacity: 0.8; /* Adjust opacity here */
+    background-color: rgba(255, 255, 255, 0.473); /* Background color with transparency */
+    animation: fadeIn s ease forwards;
+    animation-delay: 1s;
+}
 
-        .feature-img.anim {
-            animation-delay: 1.5s;
-        }
+       
 
         .anim {
             opacity: 0;
@@ -249,81 +245,69 @@
 
         /* Progress bar styles */
         .progress-bar {
-            position: fixed; /* Position fixed to keep it fixed relative to the viewport */
-            top: 0; /* Align to the top */
-            left: 0; /* Align to the left */
-            width: 100%; /* Occupy the full width */
+            position: absolute;
+            bottom: 0;
+            right: 10px; /* Adjust this value to move the progress bar */
+            width: 0; /* Initial width set to 0 */
             height: 5px; /* Adjust the height of the progress bar */
             background-color: #fa4f4f; /* Color of the progress bar */
             transition: width 1s ease; /* Smooth transition for the width change */
-            z-index: 9999; /* Ensure it's on top of everything */
         }
 
-        /* Button color change */
+        /* Styling for the DECODING heading */
+        .highlight-heading {
+            background-color: #fa4f4f; /* Orange background with transparency */
+            padding: 10px; /* Add padding for space around the text */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 2rem; /* Larger font size */
+            font-weight: bold; /* Bold font weight */
+            color: #fff; /* White text color */
+            text-align: center; /* Center align the text */
+            text-transform: uppercase; /* Uppercase text */
+            margin-bottom: 20px; /* Add some space below the heading */
+        }
+        
+        /* Added CSS for selected quality buttons */
         .quality-button.selected {
-            background-color: blue !important;
-        }
-
-        .quality-button.original-color {
-            background-color: #fa4f4f !important;
-        }
-
-        /* Download button styles */
-        .download-button {
-            display: inline-block;
-            padding: 10px 20px;
-            border: 0;
-            outline: 0;
-            border-radius: 5px;
-            background: #fa4f4f; /* Change background color */
-            color: #fff;
-            font-weight: 500;
-            cursor: pointer;
-            transition: 0.5s;
-            text-decoration: none; /* Remove underline */
-        }
-
-        .download-button:hover {
-            border-radius: 30px;
-            background: #000;
+            background-color: blue;
         }
     </style>
 </head>
 <body>
+
 <div class="container">
      <nav>
         <img src="images/logo.png" class="logo">
         <ul>
-          <li><a href="https://drive.google.com/file/d/1X3V0CUN8PsB7PRM5ayczYxzYoEEvt1oL/view?usp=sharing" target="_blank">Abstract</a></li>
-          <li><a href="https://drive.google.com/file/d/11n0qMAlenVW9PV0znFQaiVF_iBJVeAwt/view?usp=sharing" target="_blank">Information</a></li>          
-            <li><a href="https://forms.gle/p79LHGAVRYqpXsQm6" target="_blank">G-Forms</a></li> <!-- Changed "contact us" to "Gains" -->
-        </ul>
-        <!-- Dropdown menu for Instagram profiles -->
-        <div class="dropdown">
-            <button class="btn">Teammates</button>
-            <div class="dropdown-content">
-                <a href="https://www.instagram.com/murali_paila__/">
-                    <img src="images/li.jpeg" class="profile-img">
-                    <span>Murali Paila</span>
-                    <span>Phno: 80082 42013</span>
-                </a>
-                <a href="https://www.instagram.com/0t_0e_07j_/">
-                    <img src="images/teja.jpg" class="profile-img">
-                    <span>Tejeswar Rao Majji</span>
-                    <span>Phno: 63015 86689</span>
-                </a>
-                <a href="https://www.instagram.com/gunjesh_07/">
-                    <img src="images/gunji.png" class="profile-img">
-                    <span>Gunjesh Kumar Singh</span>
-                    <span>Phno: 90630 95958</span>
-                </a>
-                <a href="https://www.instagram.com/the_alone_akhil/">
-                    <img src="images/akl.png" class="profile-img">
-                    <span>Akhil Nemalapuri</span>
-                    <span>Phno: 93900 93962</span>
-                </a>
+          <li><a href="https://prezi.com/view/LO2ozHFRVmdL0uZn0IO1/" target="_blank">Overview</a></li>
+          <li><a href="https://docs.google.com/document/d/1MunvoyTxyqUPQFMNiyAkyE0e-hZJmr5l/edit?usp=sharing&ouid=103814499918169069610&rtpof=true&sd=true" target="_blank">Document</a></li>          
+            <li><a href="https://forms.gle/p79LHGAVRYqpXsQm6" target="_blank">Survey</a></li> <!-- Changed "contact us" to "Gains" -->
+            <div class="dropdown">
+                <button class="btn">Teammates</button>
+                <div class="dropdown-content">
+                    <a href="https://www.instagram.com/murali_paila__/">
+                        <img src="images/li.jpeg" class="profile-img">
+                        <span>Murali Paila</span>
+                        <span>Phno: 80082 42013</span>
+                    </a>
+                    <a href="https://www.instagram.com/0t_0e_07j_/">
+                        <img src="images/teja.jpg" class="profile-img">
+                        <span>Tejeswar Rao Majji</span>
+                        <span>Phno: 63015 86689</span>
+                    </a>
+                    <a href="https://www.instagram.com/gunjesh_07/">
+                        <img src="images/gunji.png" class="profile-img">
+                        <span>Gunjesh Kumar Singh</span>
+                        <span>Phno: 90630 95958</span>
+                    </a>
+                    <a href="https://www.instagram.com/the_alone_akhil/">
+                        <img src="images/akl.png" class="profile-img">
+                        <span>Akhil Nemalapuri</span>
+                        <span>Phno: 93900 93962</span>
+                    </a>
+                </div>
             </div>
-        </div>
+        </ul>
      </nav>
             
      <div class="content">
@@ -341,10 +325,11 @@
              <button class="quality-button" id="normal1">Normal</button>
              <button class="quality-button" id="hd1">HD</button>
              <button class="quality-button" id="uhd1">UHD</button>
-             <a id="downloadLink1" class="download-button" href="https://drive.google.com/uc?export=download&id=1X_6guR97tWX111-3ihudfAPo_1otyNl7" download="file1.mp4">Download</a>
+             <a id="downloadLink1" class="download-button" href="https://drive.google.com/uc?export=download&id=18UPseEG9vaTxZPnuztLCQRkohOfS5udk" download="file1.mp4">Download</a>
              
         </div>
      </div>
+     
      <div class="content">
         <div class="section">
             <h1 class="highlight-heading anim">DECODING</h1>
@@ -360,9 +345,12 @@
              <button class="quality-button" id="normal2">Normal</button>
              <button class="quality-button" id="hd2">HD</button>
              <button class="quality-button" id="uhd2">UHD</button>
-             <a id="downloadLink2" class="download-button" href="https://drive.google.com/uc?export=download&id=1w5opOMubq688b9vHDen-zcsqZ9xa5fmy" download="file2.mp4">Download</a>
+             <a id="downloadLink2" class="download-button" href="https://drive.google.com/uc?export=download&id=1EjtFCw4kFewTuWtoPvefDCq3lkN5k_r1" download="file2.mp4">Download</a>
         </div>
      </div>
+</div>
+<div>
+    <img src="images/feat1.jpg" class="feature-img">
 </div>
 
 <div id="image-container">
@@ -386,25 +374,94 @@ function showPdf(src) {
 }
 
 // Adding event listener to the download button
-document.querySelectorAll('.uploadButton').forEach(uploadButton => {
-    uploadButton.addEventListener('click', function() {
-        const progressBar = document.querySelector('.progress-bar');
-        progressBar.style.visibility = 'visible'; // Show the progress bar
-        progressBar.style.width = '100%'; // Filling the progress bar
-        setTimeout(() => {
-            progressBar.style.width = '0'; // Resetting the progress bar after upload completes
-            progressBar.style.visibility = 'hidden'; // Hide the progress bar
-        }, 1000); // Change this value to match your desired upload duration
+document.querySelectorAll('.download-button').forEach(downloadButton => {
+    downloadButton.addEventListener('click', function(event) {
+        const uploadForm = event.target.closest('.section').querySelector('form');
+        const uploadedFile = uploadForm.querySelector('input[type=file]').files[0];
+        if (!uploadedFile) {
+            alert("Please upload a file first!");
+            event.preventDefault(); // Prevent default action (i.e., following the link)
+        } else {
+            // Reload the page after 3 seconds
+            setTimeout(() => {
+                window.location.reload();
+            }, 3000); // Change this value to set the delay before reloading (in milliseconds)
+        }
     });
 });
 
-// Adding event listeners to quality buttons
-document.querySelectorAll('.quality-button').forEach(button => {
-    button.addEventListener('click', function() {
-        document.querySelectorAll('.quality-button').forEach(btn => btn.classList.remove('selected'));
-        this.classList.add('selected');
+document.querySelectorAll('.uploadButton').forEach(uploadButton => {
+    uploadButton.addEventListener('click', function(event) {
+        const section = event.target.closest('.section');
+        const progressBar = section.querySelector('.progress-bar');
+        const uploadForm = section.querySelector('form');
+        const uploadedFile = uploadForm.querySelector('input[type=file]').files[0];
+        if (!uploadedFile) {
+            alert("Please select a file to upload!");
+            return;
+        }
+        const formData = new FormData();
+        formData.append('file', uploadedFile);
+        fetch('upload.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.success) {
+                progressBar.style.width = '100%';
+            } else {
+                alert("File upload failed!");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("File upload failed!");
+        });
     });
 });
+
+// Update the background color of selected quality buttons
+function updateQualityButtonState(id) {
+    document.querySelectorAll('.quality-button').forEach(button => {
+        if (button.id === id) {
+            button.classList.add('selected');
+        } else {
+            button.classList.remove('selected');
+        }
+    });
+}
+
+document.getElementById('normal1').addEventListener('click', function() {
+    updateQualityButtonState('normal1');
+    document.getElementById('downloadLink1').href = 'https://drive.google.com/uc?export=download&id=18UPseEG9vaTxZPnuztLCQRkohOfS5udk';
+});
+
+document.getElementById('hd1').addEventListener('click', function() {
+    updateQualityButtonState('hd1');
+    document.getElementById('downloadLink1').href = 'https://drive.google.com/uc?export=download&id=18UPseEG9vaTxZPnuztLCQRkohOfS5udk';
+});
+
+document.getElementById('uhd1').addEventListener('click', function() {
+    updateQualityButtonState('uhd1');
+    document.getElementById('downloadLink1').href = 'https://drive.google.com/uc?export=download&id=18UPseEG9vaTxZPnuztLCQRkohOfS5udk';
+});
+
+document.getElementById('normal2').addEventListener('click', function() {
+    updateQualityButtonState('normal2');
+    document.getElementById('downloadLink2').href = 'https://drive.google.com/uc?export=download&id=1EjtFCw4kFewTuWtoPvefDCq3lkN5k_r1';
+});
+
+document.getElementById('hd2').addEventListener('click', function() {
+    updateQualityButtonState('hd2');
+    document.getElementById('downloadLink2').href = 'https://drive.google.com/uc?export=download&id=1EjtFCw4kFewTuWtoPvefDCq3lkN5k_r1';
+});
+
+document.getElementById('uhd2').addEventListener('click', function() {
+    updateQualityButtonState('uhd2');
+    document.getElementById('downloadLink2').href = 'https://drive.google.com/uc?export=download&id=1EjtFCw4kFewTuWtoPvefDCq3lkN5k_r1';
+});
 </script>
-</body>    
+</body>
 </html>

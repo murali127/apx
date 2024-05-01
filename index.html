@@ -43,8 +43,8 @@
         nav ul {
             list-style: none;
             width: 100%;
-            text-align: right;
-            padding-right: 60px;
+            text-align: center; /* Align text to the left */
+            padding-left: 100px; /* Adjust left padding */
         }
 
         nav ul li {
@@ -153,8 +153,13 @@
     right: 10%;
     opacity: 0.8; /* Adjust opacity here */
     background-color: rgba(255, 255, 255, 0.473); /* Background color with transparency */
-}      
-      .anim {
+   /* animation: fadeIn s ease forwards;
+    animation-delay: 1s;*/
+}
+
+       
+
+        .anim {
             opacity: 0;
             transform: translateY(30px);
             animation: moveup 0.5s linear forwards;
@@ -274,8 +279,8 @@
      <nav>
         <img src="images/logo.png" class="logo">
         <ul>
-          <li><a href="https://prezi.com/view/LO2ozHFRVmdL0uZn0IO1/" target="_blank">Overview</a></li>
-          <li><a href="https://docs.google.com/document/d/1MunvoyTxyqUPQFMNiyAkyE0e-hZJmr5l/edit?usp=sharing&ouid=103814499918169069610&rtpof=true&sd=true" target="_blank">Document</a></li>          
+            <li><a href="https://prezi.com/view/LO2ozHFRVmdL0uZn0IO1/" target="_blank">Overview</a></li>
+            <li><a href="https://docs.google.com/document/d/1MunvoyTxyqUPQFMNiyAkyE0e-hZJmr5l/edit?usp=sharing&ouid=103814499918169069610&rtpof=true&sd=true" target="_blank">Document</a></li>          
             <li><a href="https://forms.gle/p79LHGAVRYqpXsQm6" target="_blank">Survey</a></li> <!-- Changed "contact us" to "Gains" -->
             <div class="dropdown">
                 <button class="btn">Teammates</button>

@@ -90,13 +90,12 @@ We welcome contributions! To contribute:
 
 For inquiries or suggestions, please reach out:
 
-- **Your Name**: [LinkedIn Profile](https://www.linkedin.com/in/yourprofile)
-- **Email**: your.email@example.com
-
+- **Your Name**: [LinkedIn Profile](https://www.linkedin.com/in/murali-paila-a316b52b5/)
+- **Email**:muralijay360@gmail.com
 ## 🔗 Links
 
-- [Live Demo](https://your-live-demo-link.com)
-- [Documentation](https://link-to-your-docs.com)
+- [Live Demo](https://murali127.github.io/apx/)
+- [Documentation](https://drive.google.com/file/d/1Gj8XBloPG4uUnK1Yn4UJEHhR2Dc86fD2/view)
 
 ---
 

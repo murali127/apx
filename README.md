@@ -1,10 +1,7 @@
-Here’s a trendy and informative README file you can use for your GitHub repository, based on the HTML code you provided. This README highlights the project’s purpose, features, and setup instructions in an engaging way:
-
 Link :- https://murali127.github.io/apx/
 ```markdown
 # APEX QR Vault: Unlocking Storage Potential
 
-![Logo](images/logo.png)
 
 Welcome to **APEX QR Vault**! This web application is designed to enhance your storage experience through innovative encoding and decoding functionalities. Whether you’re uploading files or downloading them, APEX QR Vault is your go-to solution for managing your data efficiently.
 
@@ -101,10 +98,3 @@ For inquiries or suggestions, please reach out:
 
 Thank you for checking out APEX QR Vault! We hope you find it useful for unlocking your storage potential.
 ```
-
-### Key Points to Customize
-- Replace placeholder links and names with your actual GitHub repository URL, your name, and your contact information.
-- Ensure that the logo image link is valid in your repository structure.
-- Modify any sections as per your specific requirements or features.
-
-Feel free to adjust any part of the README to better fit your style or project specifics!
